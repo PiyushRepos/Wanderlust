@@ -1,0 +1,22 @@
+{
+  "name": "wanderlust",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "travel",
+    "picnic",
+    "renting"
+  ],
+  "author": "Piyush Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.0",
+    "nodemon": "^3.1.3"
+  }
+}

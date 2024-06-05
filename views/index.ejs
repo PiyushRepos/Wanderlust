@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <nav class="nav">
+        <a href="#" class="nav-left">
+            <img src="/assets/logo.svg" width="35" height="35" alt="logo">
+            <span>Explore</span>
+        </a>
+        <div class="searchbar">
+            <input type="text" placeholder="Search destinations">
+            <button>
+                <img src="/assets/search.svg" alt="search icon">
+                <span>Search</span>
+            </button>
+        </div>
+        <div class="nav-right">
+            <a href="#">Airbnb your home</a>
+            <a href="#">Sign up</a>
+            <a href="#">Log in</a>
+        </div>
+    </nav>
+    <div class="container">
+      <% for(let i = 0; i < allListings.length; i++){ %>
+      <a href="/<%= allListings[i].id %>">
+        <div class="card">
+          <img
+            src="<%= allListings[i].image %>"
+            alt="<%= allListings[i].title %>"
+          />
+          <div class="card-content">
+            <p class="card-title"><%= allListings[i].title %></p>
+            <p class="card-price">₹<b><%= allListings[i].price%></b> / night</p>
+          </div>
+        </div>
+      </a>
+      <% } %>
+    </div>
+  </body>
+</html>
