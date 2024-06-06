@@ -1,14 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+<% layout("./layouts/boilerplate.ejs"); %>
 <body>
-    <div class="container">
-        <img src="<%= listing.image %>" width="400" height="400" alt="">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card">
+        <img
+          src="<%= listing.image %>"
+          class="card-img-top show-image"
+          alt="listing-image"
+        />
+        <div class="card-body">
+          <h3><%= listing.title %></h3>
+          <p><%= listing.description %></p>
+          <p><b>&#8377; <%= listing.price.toLocaleString("en-IN") %></b></p>
+          <p class="capitalize"><b>Location:</b> <%= listing.location %></p>
+          <p class="capitalize"><b>Country:</b> <%= listing.country %></p>
+          <a href="/listings/<%= listing._id %>/edit"
+            ><button class="btn btn-secondary mb-2">Edit Listing</button></a
+          >
+          <form
+            method="post"
+            action="/listings/<%= listing._id%>?_method=DELETE"
+          >
+            <button class="btn btn-danger">Delete Listing</button>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
 </body>
-</html>

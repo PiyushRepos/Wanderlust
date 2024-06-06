@@ -1,45 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
+  <% layout("./layouts/boilerplate.ejs"); %>
   <body>
-    <nav class="nav">
-        <a href="#" class="nav-left">
-            <img src="/assets/logo.svg" width="35" height="35" alt="logo">
-            <span>Explore</span>
-        </a>
-        <div class="searchbar">
-            <input type="text" placeholder="Search destinations">
-            <button>
-                <img src="/assets/search.svg" alt="search icon">
-                <span>Search</span>
-            </button>
-        </div>
-        <div class="nav-right">
-            <a href="#">Airbnb your home</a>
-            <a href="#">Sign up</a>
-            <a href="#">Log in</a>
-        </div>
-    </nav>
-    <div class="container">
-      <% for(let i = 0; i < allListings.length; i++){ %>
-      <a href="/<%= allListings[i].id %>">
-        <div class="card">
-          <img
-            src="<%= allListings[i].image %>"
-            alt="<%= allListings[i].title %>"
-          />
-          <div class="card-content">
-            <p class="card-title"><%= allListings[i].title %></p>
-            <p class="card-price">₹<b><%= allListings[i].price%></b> / night</p>
+    <h1>All Listings</h1>
+    <!-- <form action="/listings/new" method="get">
+      <button type="submit" style="margin: 1rem 5rem; font-size: 1rem;">Create new listing</button>
+    </form> -->
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+      <% for(listing of allListings) { %>
+        <a href="/listings/<%= listing.id %>" class="text-decoration-none">
+          <div class="card col">
+            <img src="<%= listing.image %>" class="card-img-top" alt="...">
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+              <h6><%= listing.title %></h6>
+              <p><b>&#8377; <%= listing.price.toLocaleString("en-IN") %> </b> /night</p>
+              <p><%= listing.location %></p>
+            </div>
           </div>
-        </div>
-      </a>
-      <% } %>
+        </a>
+        <% } %>
     </div>
   </body>
-</html>
