@@ -3,7 +3,7 @@
     <div class="container-md mt-3 row">
       <div class="col-8 offset-2">
         <h2>Edit your listing</h2>
-        <form method="POST" action="/listings/<%= listing.id %>?_method=PUT">
+        <form method="POST" action="/listings/<%= listing.id %>?_method=PUT" novalidate class="needs-validation">
           <div class="mb-3">
             <label for="title" class="form-label">Enter title</label>
             <input
@@ -13,6 +13,7 @@
               id="title"
               placeholder="Title"
               value="<%= listing.title %>"
+              required
             />
           </div>
           <div class="mb-3">
@@ -22,6 +23,7 @@
               name="listing[description]"
               id="desc"
               rows="3"
+              required
             ><%= listing.description %></textarea>
           </div>
           <div class="mb-3">
@@ -44,6 +46,7 @@
               class="form-control"
               id="price"
               placeholder="0"
+              required
             />
           </div>
           <div class="mb-3">
@@ -55,6 +58,7 @@
               class="form-control"
               id="location"
               placeholder="Location"
+              required
             />
           </div>
           <div class="mb-3">
@@ -66,6 +70,7 @@
               class="form-control"
               id="country"
               placeholder="country"
+              required
             />
           </div>
           <div class="text-center">
